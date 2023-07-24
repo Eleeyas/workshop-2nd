@@ -27,6 +27,14 @@ public class PayService {
                 .withPayload(request)
                 .build();
         streamBridge.send("payment-topic", message);
-        return new PayResponse("200", "success");
+        return PayResponse.builder()
+                .code("200")
+                .status("Success")
+                .email(request.getEmail())
+                .name(request.getName())
+                .paymentMethod(request.getPaymentMethod())
+                .phone(request.getPhone())
+                .price(request.getPrice())
+                .build();
     }
 }
