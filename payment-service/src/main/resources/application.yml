@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    function:
+      definition: paymentProducer
+    stream:
+      bindings:
+        paymentProducer-out-0:
+          destination: payment-topic
+        logAdaptor-out-0:
+          destination: log-topic
+
+      kafka:
+        binder:
+          brokers: localhost:9092, localhost:9091
