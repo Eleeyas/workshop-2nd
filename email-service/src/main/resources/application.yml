@@ -1,3 +1,4 @@
+server.port: 8181
 spring:
   cloud:
     stream:
@@ -5,9 +6,7 @@ spring:
         binder:
           brokers: localhost:9092
       function:
-        definition: paymentProducer;logActivityPublisher
+        definition: receivePayment
       bindings:
-        paymentProducer-out-0:
+        receivePayment-in-0:
           destination: payment-topic
-        logActivityPublisher-out-0:
-          destination: log-topic
