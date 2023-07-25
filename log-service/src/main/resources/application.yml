@@ -7,8 +7,9 @@ spring:
       kafka:
         binder:
           brokers: localhost:9092
-      function:
-        definition: receiveLogActivity
+      function.definition: receiveLogActivity
       bindings:
         receiveLogActivity-in-0:
+          binder: kafka
           destination: log-topic
+          group: log-service

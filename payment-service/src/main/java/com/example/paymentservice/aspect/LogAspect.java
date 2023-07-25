@@ -26,9 +26,9 @@ public class LogAspect {
     public void afterReturning(JoinPoint joinPoint, PayResponse payResponse) {
         log.info("afterReturning");
 
-//        var message = MessageBuilder
-//                .withPayload(payResponse)
-//                .build();
-//        streamBridge.send("logActivityPublisher-out-0", message);
+        var message = MessageBuilder
+                .withPayload(payResponse)
+                .build();
+        streamBridge.send("logActivityPublisher-out-0", message);
     }
 }

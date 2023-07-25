@@ -8,6 +8,8 @@ spring:
         definition: paymentProducer;logActivityPublisher
       bindings:
         paymentProducer-out-0:
+          binder: kafka
           destination: payment-topic
         logActivityPublisher-out-0:
+          binder: kafka
           destination: log-topic

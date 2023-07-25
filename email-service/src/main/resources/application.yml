@@ -5,8 +5,9 @@ spring:
       kafka:
         binder:
           brokers: localhost:9092
-      function:
-        definition: receivePayment
+      function.definition: receivePayment
       bindings:
         receivePayment-in-0:
+          binder: kafka
           destination: payment-topic
+          group: email-service

@@ -23,10 +23,10 @@ public class PayService {
     @SneakyThrows
     public PayResponse execute(PayRequest request) {
         log.info("req: {}", request);
-        var message = MessageBuilder
-                .withPayload(request)
-                .build();
-        streamBridge.send("payment-topic", message);
+//        var message = MessageBuilder
+//                .withPayload(request)
+//                .build();
+//        streamBridge.send("payment-topic", message);
         return PayResponse.builder()
                 .code("200")
                 .status("Success")

@@ -55,6 +55,7 @@
 			<classifier>test-binder</classifier>
 			<type>test-jar</type>
 		</dependency>
+<!--	Refer Spring Cloud Stream: https://docs.spring.io/spring-cloud-stream/docs/Brooklyn.RELEASE/reference/htmlsingle/#_producers_and_consumers -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
