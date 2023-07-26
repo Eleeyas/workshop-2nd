@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 public class PayRequest {
@@ -14,4 +16,6 @@ public class PayRequest {
     private String paymentMethod;
     private String phone;
     private String price;
+    private String taxId;
+    private BigDecimal totalPrice;
 }

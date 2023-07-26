@@ -1,0 +1,7 @@
+FROM openjdk:11
+
+COPY /target/report-service-0.0.1-SNAPSHOT.jar report-service.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "report-service.jar"]

@@ -1,9 +1,10 @@
+server:port: 8180
 spring:
   cloud:
     stream:
       kafka:
         binder:
-          brokers: broker:29092
+          brokers: localhost:9092
       function:
         definition: paymentProducer;logActivityPublisher;reportProducer
       bindings:

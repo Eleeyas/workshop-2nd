@@ -174,3 +174,35 @@ services:
       KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:29092'
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
+
+  payment-service:
+    container_name: payment-service
+    image: payment-service
+    ports:
+      - '8181:8080'
+    depends_on:
+      - broker
+  
+  email-service:
+    container_name: email-service
+    image: email-service
+    ports:
+      - '8182:8080'
+    depends_on:
+      - broker
+
+  log-service:
+    container_name: log-service
+    image: log-service
+    ports:
+      - '8183:8080'
+    depends_on:
+      - broker
+  
+  report-service:
+    container_name: report-service
+    image: report-service
+    ports:
+      - '8184:8080'
+    depends_on:
+      - broker

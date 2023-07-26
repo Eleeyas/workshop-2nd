@@ -6,8 +6,14 @@ import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.function.Supplier;
 
 @Service
 public class PayService {
@@ -23,10 +29,14 @@ public class PayService {
     @SneakyThrows
     public PayResponse execute(PayRequest request) {
         log.info("req: {}", request);
-//        var message = MessageBuilder
-//                .withPayload(request)
-//                .build();
-//        streamBridge.send("payment-topic", message);
+        var message = MessageBuilder
+                .withPayload(request)
+                .build();
+        streamBridge.send("payment-topic", message);
+
+        if (request.getTotalPrice().compareTo(BigDecimal.valueOf(10000)) > 0) {
+            streamBridge.send("report-topic", message);
+        }
         return PayResponse.builder()
                 .code("200")
                 .status("Success")

@@ -1,9 +1,10 @@
+server.port: 8181
 spring:
   cloud:
     stream:
       kafka:
         binder:
-          brokers: broker:29092
+          brokers: locahost:9092
       function.definition: receivePayment;report
       bindings:
         receivePayment-in-0:

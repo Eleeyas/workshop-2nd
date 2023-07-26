@@ -1,0 +1,14 @@
+server:
+  port: 8183
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      function.definition: receiveReport
+      bindings:
+        receiveReport-in-0:
+          binder: kafka
+          destination: report-topic
+          group: report-service

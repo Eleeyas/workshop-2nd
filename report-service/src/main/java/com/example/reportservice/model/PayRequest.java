@@ -1,4 +1,4 @@
-package com.example.emailservice.model;
+package com.example.reportservice.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
